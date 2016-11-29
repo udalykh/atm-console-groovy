@@ -14,11 +14,11 @@ class WithdrawalCommand implements AtmCommand {
 
         AtmUtils.assertLengthCheck(2, arguments);
         Currency currencyToPoll = Currency.getCurrency(arguments[0])
-        int amountToGet = AtmUtils.parseInt(arguments[1], "ILLEGAL TYPING OF AMOUNT")
+        int amountToGet = AtmUtils.parseInt(arguments[1], 'ILLEGAL TYPING OF AMOUNT')
 
         //Checking whether the money storage contains this currency
         if (!moneyStorage.hasCurrency(currencyToPoll)) {
-            throw new AtmStateException("NO SUCH CURRENCY")
+            throw new AtmStateException('NO SUCH CURRENCY')
         }
 
         //Checking whether it is possible to take a certain amount
@@ -57,7 +57,7 @@ class WithdrawalCommand implements AtmCommand {
                 return outMap
             }
         }
-        throw new AtmStateException("NOT POSSIBLE WITH THE AVAILABLE BANKNOTES")
+        throw new AtmStateException('NOT POSSIBLE WITH THE AVAILABLE BANKNOTES')
 
     }
 }
