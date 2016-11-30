@@ -11,20 +11,16 @@ class ExistingBanknotes {
                 JPY: [10000, 5000, 1000],
                 EUR: [500, 200, 100, 50, 20, 10, 5]
         ].each {
-            it, i ->
-                it.each {
-                    currency, values ->
-                        values.each {
-                            value ->
-                                exBank.add(new BankNote(currency, value))
-                        }
+            key, value ->
+                value.each {
+                    exBank.add(new BankNote(key, it))
                 }
         }
     }
 
     static void assertBanknote(assertCurrency, assertValue) throws AtmStateException {
         if (!exBank.contains(new BankNote(assertCurrency, assertValue))) {
-            throw new AtmStateException("NOT EXISTING BANKNOTE")
+            throw new AtmStateException('NOT EXISTING BANKNOTE')
         }
     }
 
