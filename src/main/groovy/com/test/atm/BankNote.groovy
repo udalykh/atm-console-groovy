@@ -36,15 +36,6 @@ class BankNote {
         return value
     }
 
-    //@Override
-    int compareTo(BankNote testBankNote) {
-        if (currency == testBankNote.getCurrency()) {
-            return Integer.compare(value, testBankNote.value)
-        } else {
-            return currency <=> testBankNote.getCurrency()
-        }
-    }
-
     @Override
     String toString() {
         return currency + " " + value
