@@ -16,7 +16,7 @@ class AtmCommandFactory {
             case CommandType.WITHDRAW:
                 return new WithdrawalCommand(moneyStorage)
             default:
-                throw new AtmStateException('Cannot find a command for this action ' + action)
+                throw new AtmStateException('Cannot find a command for this action $action')
         }
     }
 }
