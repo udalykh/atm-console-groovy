@@ -1,5 +1,8 @@
 package com.test.atm
 
+import groovy.transform.Sortable
+
+@Sortable(includes = 'currency, value')
 class BankNote {
     Currency currency
     int value
