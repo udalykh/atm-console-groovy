@@ -3,12 +3,12 @@ package com.test.atm
 enum CommandType {
     REMAININGS("?"),
     ADD("+"),
-    WITHDRAW("-");
+    WITHDRAW("-")
 
-    private final String command;
+    private final String command
 
     CommandType(String command) {
-        this.command = command;
+        this.command = command
     }
 
     public static CommandType getCommandType(String command) throws AtmStateException {
