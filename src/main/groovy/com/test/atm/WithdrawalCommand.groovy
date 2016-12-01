@@ -1,7 +1,7 @@
 package com.test.atm
 
 class WithdrawalCommand implements AtmCommand {
-    MoneyStorage moneyStorage;
+    MoneyStorage moneyStorage
 
     WithdrawalCommand(MoneyStorage moneyStorage) {
         this.moneyStorage = moneyStorage
