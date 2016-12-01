@@ -36,7 +36,7 @@ class Atm {
 
                 Map<BankNote, Integer> response = atm.runCommand(command, arguments)
                 response.entrySet().each { entry ->
-                    println('$entry.key $entry.value')
+                    println("$entry.key $entry.value")
                 }
                 println(OK_WORD)
             } catch (AtmStateException e) {
