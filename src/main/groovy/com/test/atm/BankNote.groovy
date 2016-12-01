@@ -38,6 +38,6 @@ class BankNote {
 
     @Override
     String toString() {
-        return currency + " " + value
+        return '$currency $value'
     }
 }
