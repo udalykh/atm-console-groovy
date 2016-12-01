@@ -1,7 +1,7 @@
 package com.test.atm
 
 class DepositCommand implements AtmCommand {
-    MoneyStorage moneyStorage;
+    private final MoneyStorage moneyStorage;
 
     DepositCommand(MoneyStorage moneyStorage) {
         this.moneyStorage = moneyStorage
