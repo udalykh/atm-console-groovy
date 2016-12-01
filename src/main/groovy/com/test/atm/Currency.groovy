@@ -8,9 +8,9 @@ enum Currency {
     USD
 
     static Currency getCurrency(String currencyForChecking) throws AtmStateException {
-        values().each { it ->
-            if (it.toString() == currencyForChecking) {
-                return it
+        for (Currency checking : values()) {
+            if (checking == valueOf(currencyForChecking)) {
+                return checking
             }
         }
         throw new AtmStateException('ILLEGAL CURRENCY TYPE')
