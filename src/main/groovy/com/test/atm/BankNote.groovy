@@ -4,8 +4,8 @@ import groovy.transform.Sortable
 
 @Sortable(includes = 'currency, value')
 class BankNote {
-    private final Currency currency
-    private final int value
+    final Currency currency
+    final int value
 
     BankNote(thisCurrency, thisValue) {
         currency = thisCurrency
