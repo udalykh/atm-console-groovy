@@ -1,7 +1,7 @@
 package com.test.atm
 
 class ExistingBanknotes {
-    static def exBank = [] as TreeSet
+    static def exBank = []
 
     static {
         [
@@ -25,6 +25,7 @@ class ExistingBanknotes {
     }
 
     static Set<BankNote> getExistingBanknotes() {
+        exBank.sort().reverse()
         return exBank
     }
 }
