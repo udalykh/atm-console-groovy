@@ -25,7 +25,6 @@ class ExistingBanknotes {
     }
 
     static Set<BankNote> getExistingBanknotes() {
-        exBank.sort().reverse()
-        return exBank
+        return exBank.sort().reverse()
     }
 }
