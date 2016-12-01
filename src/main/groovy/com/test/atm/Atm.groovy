@@ -38,9 +38,9 @@ class Atm {
                 response.entrySet().each { entry ->
                     println("$entry.key $entry.value")
                 }
-                println(OK_WORD)
+                println OK_WORD
             } catch (AtmStateException e) {
-                println(ERROR_WORD)
+                println ERROR_WORD
             }
         }
     }
