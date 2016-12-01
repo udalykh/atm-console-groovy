@@ -1,7 +1,7 @@
 package com.test.atm
 
 class RequestRemainings implements AtmCommand {
-    MoneyStorage moneyStorage
+    private final MoneyStorage moneyStorage
 
     RequestRemainings(MoneyStorage moneyStorage) {
         this.moneyStorage = moneyStorage
