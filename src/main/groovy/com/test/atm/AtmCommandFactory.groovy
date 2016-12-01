@@ -1,7 +1,7 @@
 package com.test.atm
 
 class AtmCommandFactory {
-    private MoneyStorage moneyStorage
+    private final MoneyStorage moneyStorage
 
     AtmCommandFactory(MoneyStorage moneyStorage) {
         this.moneyStorage = moneyStorage
