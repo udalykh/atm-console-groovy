@@ -1,6 +1,5 @@
 package com.test.atm
 
-
 class Atm {
 
     private static final String QUIT_WORD = 'QUIT'
