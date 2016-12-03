@@ -23,7 +23,7 @@ class BankNote {
 
     @Override
     int hashCode() {
-        int result = currency != null ? currency.hashCode() : 0
+        int result = currency ? currency.hashCode() : 0
         result = 128 * result + value
         return result
     }
