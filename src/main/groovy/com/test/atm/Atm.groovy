@@ -23,7 +23,7 @@ class Atm {
         final Scanner scanner = new Scanner(System.in)
 
         Atm atm = new Atm()
-        while (true) {
+        while (true){
             // pass parameters from console to ATM
             try {
                 final String input = scanner.nextLine()
