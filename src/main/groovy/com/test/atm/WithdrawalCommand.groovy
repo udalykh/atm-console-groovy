@@ -10,7 +10,7 @@ class WithdrawalCommand implements AtmCommand {
     Map<BankNote, Integer> execute(String... arguments) throws AtmStateException {
         def outMap = [:] as TreeMap
         def numbersMap = [:]
-        def exBankForWithdrawal = ExistingBanknotes.getExistingBanknotes()
+        def exBankForWithdrawal = ExistingBanknotes.exBank
 
         AtmUtils.assertLengthCheck(2, arguments);
         Currency currencyToPoll = Currency.getCurrency(arguments[0])
@@ -58,6 +58,5 @@ class WithdrawalCommand implements AtmCommand {
             }
         }
         throw new AtmStateException('NOT POSSIBLE WITH THE AVAILABLE BANKNOTES')
-
     }
 }
