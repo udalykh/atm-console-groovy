@@ -13,7 +13,6 @@ class ExistingBanknotes {
             key, value ->
                 value.each {
                     exBank << new BankNote(key, it)
-
                 }
         }
         exBank.sort().reverse()
