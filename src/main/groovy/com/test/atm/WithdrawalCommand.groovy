@@ -43,8 +43,7 @@ class WithdrawalCommand implements AtmCommand {
             }
 
             //Withdrawal operation
-            //TODO: can be "if(!checkAmount)"
-            if (checkAmount == 0) {
+            if (!checkAmount) {
                 for (BankNote banknoteToGet : exBankForWithdrawal) {
                     int valueToPoll = banknoteToGet.getValue()
                     if (numbersMap.containsKey(banknoteToGet) && numbersMap.get(banknoteToGet) != 0) {
