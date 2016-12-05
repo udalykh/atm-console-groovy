@@ -1,7 +1,9 @@
 package com.test.atm
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.Sortable
 
+// Good job with @Sortable!
 @Sortable(includes = 'currency, value')
 class BankNote {
     final Currency currency
@@ -12,6 +14,7 @@ class BankNote {
         value = thisValue
     }
 
+    // TODO: replace with @EqualsAndHashCode annotation
     @Override
     boolean equals(Object o) {
         if (this == o) return true
@@ -21,6 +24,7 @@ class BankNote {
         return currency != null ? currency == bankNoteCheck.currency : bankNoteCheck.currency != null
     }
 
+    // TODO: replace with @EqualsAndHashCode annotation
     @Override
     int hashCode() {
         int result = currency ? currency.hashCode() : 0
@@ -28,10 +32,12 @@ class BankNote {
         return result
     }
 
+    //TODO: not needed Groovy will create a getter under the hood
     Currency getCurrency() {
         return currency
     }
 
+    //TODO: not needed Groovy will create a getter under the hood
     int getValue() {
         return value
     }

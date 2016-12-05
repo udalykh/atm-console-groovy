@@ -13,8 +13,10 @@ class Atm {
         atmCommandFactory = new AtmCommandFactory(moneyStorage)
     }
 
+    // in Groovy all exception are not checked so "throws AtmStateException" is nor needed
     Map<BankNote, Integer> runCommand(String command, String... arguments) throws AtmStateException {
         AtmCommand atmCommand = atmCommandFactory.create(command)
+        // TODO: in Groovy "return" is not needed; can be just "atmCommand.execute(arguments)"
         return atmCommand.execute(arguments)
     }
 
@@ -39,7 +41,7 @@ class Atm {
                     println("$entry.key $entry.value")
                 }
                 println OK_WORD
-            } catch (AtmStateException e) {
+            } catch (AtmStateException e) { // TODO: can be just "} catch (ignored)"
                 println ERROR_WORD
             }
         }

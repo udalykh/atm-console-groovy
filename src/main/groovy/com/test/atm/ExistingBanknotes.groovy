@@ -3,6 +3,7 @@ package com.test.atm
 class ExistingBanknotes {
     static def exBank = []
 
+    // Good job
     static {
         [
                 USD: [100, 50, 20, 10, 5, 2, 1],
@@ -14,8 +15,13 @@ class ExistingBanknotes {
             key, value ->
                 value.each {
                     exBank.add(new BankNote(key, it))
+                    // TODO: can be
+                    // exBank << new BankNote(key, it)
                 }
         }
+
+        // TODO:
+        // exBank.sort().reverse()
     }
 
     static void assertBanknote(assertCurrency, assertValue) throws AtmStateException {
@@ -24,6 +30,7 @@ class ExistingBanknotes {
         }
     }
 
+    // TODO: do it once in a static initializer and return "exBank" to avoid repeatable sorting and reversing
     static Set<BankNote> getExistingBanknotes() {
         return exBank.sort().reverse()
     }

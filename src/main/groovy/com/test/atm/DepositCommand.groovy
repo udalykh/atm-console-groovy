@@ -1,6 +1,7 @@
 package com.test.atm
 
 class DepositCommand implements AtmCommand {
+    // TODO: a semicolon is optional here
     private final MoneyStorage moneyStorage;
 
     DepositCommand(MoneyStorage moneyStorage) {
@@ -14,6 +15,9 @@ class DepositCommand implements AtmCommand {
         int numberToPut = AtmUtils.parseInt(arguments[2], 'ILLEGAL TYPING OF NUMBER')
 
         moneyStorage.addNotes(currencyToPut, valueToPut, numberToPut)
+
+        // TODO: can be just:
+        // [(new BankNote(currencyToPut, valueToPut)): numberToPut]
         return Collections.singletonMap(new BankNote(currencyToPut, valueToPut), numberToPut)
     }
 }
