@@ -16,10 +16,10 @@ class BankNote {
 
     boolean equals(Object o) {
         if (this == o) return true
-        if (o == null || getClass() != o.getClass()) return false
+        if (!o || getClass() != o.getClass()) return false
         BankNote bankNoteCheck = (BankNote) o
         if (value != bankNoteCheck.value) return false
-        return currency != null ? currency == bankNoteCheck.currency : bankNoteCheck.currency != null
+        return currency ? currency == bankNoteCheck.currency : bankNoteCheck.currency != null
     }
 
     int hashCode() {
