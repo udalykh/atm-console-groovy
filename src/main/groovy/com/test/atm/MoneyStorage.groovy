@@ -16,56 +16,29 @@ class MoneyStorage {
     void addNotes(Currency addCurrency, int addValue, int addNumber) throws AtmStateException {
         ExistingBanknotes.assertBanknote(addCurrency, addValue)
         BankNote keyToAdd = new BankNote(addCurrency, addValue)
-
-        // TODO: why not to use map.compute?
-        if (notes.containsKey(keyToAdd)) {
-            def thisNumber = notes.get(keyToAdd)
-            notes.put(keyToAdd, addNumber + (int) thisNumber)
-        } else {
-            notes.put(keyToAdd, addNumber)
-        }
-
-        // TODO: why not to use map.compute?
-        if (currencyAmount.containsKey(addCurrency)) {
-            def amountOne = currencyAmount.get(addCurrency)
-            currencyAmount.put(addCurrency, amountOne + addValue * addNumber)
-        } else {
-            currencyAmount.put(addCurrency, addNumber * addValue)
-        }
+        notes.compute(keyToAdd, { bankNote, oldNumber -> oldNumber == null ? addNumber : oldNumber + addNumber })
+        currencyAmount.compute(addCurrency, { banknoteKey, integerNumber -> integerNumber == null ? addValue * addNumber : integerNumber + addNumber * addValue })
     }
 
     void pollNotes(Currency pollCurrency, int pollValue, int pollNumber) {
         BankNote keyToPoll = new BankNote(pollCurrency, pollValue)
-
-        // TODO: why not to use map.compute?
-        notes.put(keyToPoll, notes.get(keyToPoll) - pollNumber)
-
+        notes.compute(keyToPoll, { bankNote, oldNumber -> oldNumber == null ? 0 : oldNumber - pollNumber })
         if (notes.get(keyToPoll) == 0) {
             notes.remove(keyToPoll)
         }
-
-        // TODO: why not to use map.compute?
-        currencyAmount.put(pollCurrency, currencyAmount.get(pollCurrency) - pollNumber)
-        if (currencyAmount.get(pollCurrency) == 0) {
-            currencyAmount.remove(pollCurrency)
-        }
+        currencyAmount.compute(pollCurrency, { currencyKey, oldAmount -> oldAmount == null ? 0 : oldAmount - pollNumber })
     }
 
-    int getNoteNumber(BankNote banknoteKey) {
+    int getNoteNumber(BankNote banknoteKey) throws AtmStateException {
         def numberToGet = notes.get(banknoteKey)
-        //TODO: if numberToGet is null an Null pointer exception will be throw trying to make "int" from NULL ?
+        if (!numberToGet) throw new AtmStateException('NULL BANKNOTE NUMBER')
         return (Integer) numberToGet
     }
 
     int getCurrencyAmount(Currency currencyKey) {
-        //TODO: if numberToGet is null an Null pointer exception will be throw trying to make "int" from NULL ?
         def amountToGet = currencyAmount.get(currencyKey)
+        if (!amountToGet) throw new AtmStateException('NULL CURRENCY AMOUNT')
         return (Integer) amountToGet
-    }
-
-    // TODO: not needed - groovy will generate a getter
-    def getBanknotes() {
-        return notes
     }
 }
 
