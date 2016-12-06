@@ -12,7 +12,7 @@ class WithdrawalCommand implements AtmCommand {
         def numbersMap = [:]
         def exBankForWithdrawal = ExistingBanknotes.exBank
 
-        AtmUtils.assertLengthCheck(2, arguments);
+        AtmUtils.assertLengthCheck(2, arguments)
         Currency currencyToPoll = Currency.getCurrency(arguments[0])
         int amountToGet = AtmUtils.parseInt(arguments[1], 'ILLEGAL TYPING OF AMOUNT')
 
