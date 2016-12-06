@@ -8,6 +8,6 @@ class RequestRemainings implements AtmCommand {
     }
 
     Map<BankNote, Integer> execute(String... arguments) {
-        return moneyStorage.notes
+        return moneyStorage.getNotes()
     }
 }
