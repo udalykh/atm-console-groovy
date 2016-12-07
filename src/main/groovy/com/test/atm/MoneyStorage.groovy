@@ -31,13 +31,17 @@ class MoneyStorage {
 
     int getNoteNumber(BankNote banknoteKey) {
         def numberToGet = notes.get(banknoteKey)
-        if (!numberToGet) throw new AtmStateException('NULL BANKNOTE NUMBER')
+        if (!numberToGet) {
+            throw new AtmStateException('NULL BANKNOTE NUMBER')
+        }
         return (Integer) numberToGet
     }
 
     int getCurrencyAmount(Currency currencyKey) {
         def amountToGet = currencyAmount.get(currencyKey)
-        if (!amountToGet) throw new AtmStateException('NULL CURRENCY AMOUNT')
+        if (!amountToGet) {
+            throw new AtmStateException('NULL CURRENCY AMOUNT')
+        }
         return (Integer) amountToGet
     }
 }
