@@ -14,20 +14,6 @@ class BankNote {
         value = thisValue
     }
 
-    boolean equals(Object o) {
-        if (this == o) return true
-        if (!o || getClass() != o.getClass()) return false
-        BankNote bankNoteCheck = (BankNote) o
-        if (value != bankNoteCheck.value) return false
-        return currency ? currency == bankNoteCheck.currency : bankNoteCheck.currency != null
-    }
-
-    int hashCode() {
-        int result = currency ? currency.hashCode() : 0
-        result = 128 * result + value
-        return result
-    }
-
     @Override
     String toString() {
         return "$currency $value"
