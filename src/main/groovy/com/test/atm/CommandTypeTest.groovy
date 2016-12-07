@@ -3,10 +3,7 @@ package com.test.atm
 /**
  * Created by Test on 12/07/2016.
  */
-import org.junit.Assert;
-import org.junit.Test;
-
-class CommandTypeTest {
+class CommandTypeTest extends GroovyTestCase{
 
     @Test
     public void testAtmCommand() throws AtmStateException {
