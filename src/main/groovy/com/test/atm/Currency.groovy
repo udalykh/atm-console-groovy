@@ -7,7 +7,7 @@ enum Currency {
     RUR,
     USD
 
-    static Currency getCurrency(String currencyForChecking) throws AtmStateException {
+    static Currency getCurrency(String currencyForChecking) {
         for (Currency checking : values()) {
             if (checking.toString() == currencyForChecking) {
                 return checking
