@@ -13,7 +13,7 @@ class MoneyStorage {
         return currencyAmount.containsKey(hasCurrency2)
     }
 
-    void addNotes(Currency addCurrency, int addValue, int addNumber) throws AtmStateException {
+    void addNotes(Currency addCurrency, int addValue, int addNumber) {
         ExistingBanknotes.assertBanknote(addCurrency, addValue)
         BankNote keyToAdd = new BankNote(addCurrency, addValue)
         notes.compute(keyToAdd, { bankNote, oldNumber -> oldNumber == null ? addNumber : oldNumber + addNumber })
@@ -29,7 +29,7 @@ class MoneyStorage {
         currencyAmount.compute(pollCurrency, { currencyKey, oldAmount -> oldAmount == null ? 0 : oldAmount - pollNumber })
     }
 
-    int getNoteNumber(BankNote banknoteKey) throws AtmStateException {
+    int getNoteNumber(BankNote banknoteKey) {
         def numberToGet = notes.get(banknoteKey)
         if (!numberToGet) throw new AtmStateException('NULL BANKNOTE NUMBER')
         return (Integer) numberToGet
