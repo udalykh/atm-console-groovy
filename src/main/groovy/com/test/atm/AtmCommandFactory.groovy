@@ -7,7 +7,7 @@ class AtmCommandFactory {
         this.moneyStorage = moneyStorage
     }
 
-    AtmCommand create(String action) throws AtmStateException {
+    AtmCommand create(String action) {
         switch (CommandType.getCommandType(action)) {
             case CommandType.REMAININGS:
                 return new RequestRemainings(moneyStorage)
