@@ -10,13 +10,13 @@ class CommandTypeTest {
 
     @Test
     public void testAtmCommand() throws AtmStateException {
-        CommandType addCheck = CommandType.getCommandType("+");
-        Assert.assertEquals(addCheck, CommandType.ADD);
+        CommandType addCheck = CommandType.getCommandType("+")
+        Assert.assertEquals(addCheck, CommandType.ADD)
 
-        CommandType withdrawalCheck = CommandType.getCommandType("-");
-        Assert.assertEquals(withdrawalCheck, CommandType.WITHDRAW);
+        CommandType withdrawalCheck = CommandType.getCommandType("-")
+        Assert.assertEquals(withdrawalCheck, CommandType.WITHDRAW)
 
-        CommandType remainCheck = CommandType.getCommandType("?");
-        Assert.assertEquals(remainCheck, CommandType.REMAININGS);
+        CommandType remainCheck = CommandType.getCommandType("?")
+        Assert.assertEquals(remainCheck, CommandType.REMAININGS)
     }
 }
