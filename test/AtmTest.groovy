@@ -14,9 +14,8 @@ class AtmTest {
 
     @Test
     public void sampleSession() throws AtmStateException {
-
         Map<BankNote, Integer> result = atm.runCommand("?")
-        Assert.assertEquals(atmTest, result);
+        assert atmTest == result
 
         result = atm.runCommand("+", "USD", "100", "30")
         atmTest.put(new BankNote(Currency.USD, 100), 30)
