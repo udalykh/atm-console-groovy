@@ -1,7 +1,7 @@
 package com.test.atm
 
 class AtmUtils {
-    static int parseInt(String stringToParse, String exceptionMessage) throws AtmStateException {
+    static int parseInt(String stringToParse, String exceptionMessage) {
         try {
             stringToParse as Integer
         } catch (NumberFormatException e) {
