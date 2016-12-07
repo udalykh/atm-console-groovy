@@ -7,19 +7,17 @@ class AtmTest extends GroovyTestCase{
     private Atm atm;
     private Map<BankNote, Integer> atmTest = new TreeMap<>();
 
-    @Before
     public void setUp() {
         atm = new Atm()
     }
 
-    @Test
     public void sampleSession() throws AtmStateException {
         Map<BankNote, Integer> result = atm.runCommand("?")
-        assert atmTest == result
+        assertEquals(atmTest, result)
 
         result = atm.runCommand("+", "USD", "100", "30")
-        atmTest.put(new BankNote(java.util.Currency.USD, 100), 30)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.USD, 100), 30)
+        assertEquals(atmTest, result)
 
         try {
             atm.runCommand("+", "RUR", "250", "10")
@@ -28,26 +26,26 @@ class AtmTest extends GroovyTestCase{
 
         result = atm.runCommand("+", "CHF", "100", "5")
         atmTest.clear();
-        atmTest.put(new BankNote(java.util.Currency.CHF, 100), 5)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.CHF, 100), 5)
+        assertEquals(atmTest, result)
 
         result = atm.runCommand("+", "USD", "10", "50")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.USD, 10), 50)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.USD, 10), 50)
+        assertEquals(atmTest, result)
 
         result = atm.runCommand("?")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.USD, 10), 50)
-        atmTest.put(new BankNote(java.util.Currency.CHF, 100), 5)
-        atmTest.put(new BankNote(java.util.Currency.USD, 100), 30)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.USD, 10), 50)
+        atmTest.put(new BankNote(Currency.CHF, 100), 5)
+        atmTest.put(new BankNote(Currency.USD, 100), 30)
+        assertEquals(atmTest, result)
 
         result = atm.runCommand("-", "USD", "120")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.USD, 100), 1)
-        atmTest.put(new BankNote(java.util.Currency.USD, 10), 2)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.USD, 100), 1)
+        atmTest.put(new BankNote(Currency.USD, 10), 2)
+        assertEquals(atmTest, result)
 
         try {
             atm.runCommand("-", "RUR", "500")
@@ -61,10 +59,10 @@ class AtmTest extends GroovyTestCase{
 
         result = atm.runCommand("?")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.CHF, 100), 5)
-        atmTest.put(new BankNote(java.util.Currency.USD, 10), 48)
-        atmTest.put(new BankNote(java.util.Currency.USD, 100), 29)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.CHF, 100), 5)
+        atmTest.put(new BankNote(Currency.USD, 10), 48)
+        atmTest.put(new BankNote(Currency.USD, 100), 29)
+        assertEquals(atmTest, result)
 
         try {
             atm.runCommand("+", "eur", "100", "5")
@@ -73,20 +71,20 @@ class AtmTest extends GroovyTestCase{
 
         result = atm.runCommand("-", "CHF", "400")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.CHF, 100), 4)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.CHF, 100), 4)
+        assertEquals(atmTest, result)
 
         result = atm.runCommand("+", "CHF", "10", "50")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.CHF, 10), 50)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.CHF, 10), 50)
+        assertEquals(atmTest, result)
 
         result = atm.runCommand("?")
         atmTest.clear()
-        atmTest.put(new BankNote(java.util.Currency.CHF, 10), 50)
-        atmTest.put(new BankNote(java.util.Currency.CHF, 100), 1)
-        atmTest.put(new BankNote(java.util.Currency.USD, 10), 48)
-        atmTest.put(new BankNote(java.util.Currency.USD, 100), 29)
-        Assert.assertEquals(atmTest, result)
+        atmTest.put(new BankNote(Currency.CHF, 10), 50)
+        atmTest.put(new BankNote(Currency.CHF, 100), 1)
+        atmTest.put(new BankNote(Currency.USD, 10), 48)
+        atmTest.put(new BankNote(Currency.USD, 100), 29)
+        assertEquals(atmTest, result)
     }
 }
