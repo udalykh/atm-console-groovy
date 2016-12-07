@@ -10,7 +10,7 @@ class WithdrawalCommand implements AtmCommand {
     Map<BankNote, Integer> execute(String... arguments) {
         def outMap = [:] as TreeMap
         def numbersMap = [:]
-        def exBankForWithdrawal = ExistingBanknotes.exBank
+        def exBankForWithdrawal = ExistingBanknotes.getExBank()
 
         AtmUtils.assertLengthCheck(2, arguments)
         Currency currencyToPoll = Currency.getCurrency(arguments[0])
