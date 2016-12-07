@@ -15,7 +15,7 @@ class ExistingBanknotes {
                     exBank << new BankNote(key, it)
                 }
         }
-        exBank.sort().reverse()
+        exBank = exBank.sort().reverse()
     }
 
     static void assertBanknote(assertCurrency, assertValue) {
