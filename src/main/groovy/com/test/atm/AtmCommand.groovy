@@ -1,5 +1,5 @@
 package com.test.atm
 
 interface AtmCommand {
-    Map<BankNote, Integer> execute(String... arguments) throws AtmStateException
+    Map<BankNote, Integer> execute(String... arguments)
 }
