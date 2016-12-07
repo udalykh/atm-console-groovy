@@ -7,11 +7,11 @@ class AtmTest extends GroovyTestCase{
     private Atm atm;
     private Map<BankNote, Integer> atmTest = new TreeMap<>();
 
-    public void setUp() {
+    void setUp() {
         atm = new Atm()
     }
 
-    public void sampleSession() throws AtmStateException {
+    void sampleSession() throws AtmStateException {
         Map<BankNote, Integer> result = atm.runCommand("?")
         assertEquals(atmTest, result)
 
