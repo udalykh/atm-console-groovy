@@ -7,7 +7,7 @@ class WithdrawalCommand implements AtmCommand {
         this.moneyStorage = moneyStorage
     }
 
-    Map<BankNote, Integer> execute(String... arguments){
+    Map<BankNote, Integer> execute(String... arguments) {
         def outMap = [:] as TreeMap
         def numbersMap = [:]
         def exBankForWithdrawal = ExistingBanknotes.exBank
