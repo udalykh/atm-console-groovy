@@ -18,14 +18,16 @@ class MoneyStorageTest extends GroovyTestCase {
         assertEquals(storageCheck, moneyStorage.getNotes())
     }
 
-    @Test(expected = AtmStateException.class)
-    public void moneyStorageTest2() throws AtmStateException {
-        moneyStorage.addNotes(Currency.RUR, 120, 1)
+    void moneyStorageTest2() {
+        shouldFail(AtmStateException) {
+            moneyStorage.addNotes(Currency.RUR, 120, 1)
+        }
     }
 
-    @Test(expected = AtmStateException.class)
-    public void moneyStorageException() throws AtmStateException {
-        moneyStorage.addNotes(Currency.USD, 10, 7)
-        moneyStorage.getNoteNumber(new BankNote(Currency.USD, 10))
+    void moneyStorageException() {
+        shouldFail(AtmStateException) {
+            moneyStorage.addNotes(Currency.USD, 10, 7)
+            moneyStorage.getNoteNumber(new BankNote(Currency.USD, 10))
+        }
     }
 }
