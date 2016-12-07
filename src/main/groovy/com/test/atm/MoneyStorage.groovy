@@ -2,8 +2,8 @@ package com.test.atm
 
 class MoneyStorage {
 
-    private def notes = [:] as TreeMap
-    private def currencyAmount = [:]
+    def notes = [:] as TreeMap
+    def currencyAmount = [:]
 
     boolean hasNote(Currency hasCurrency, int hasValue) {
         return notes.containsKey(new BankNote(hasCurrency, hasValue))
