@@ -24,9 +24,15 @@ class MoneyStorageTest extends GroovyTestCase {
         }
     }
 
-    void testMoneyStorageException() {
+    void testNoteNumberException() {
         shouldFail(AtmStateException) {
             moneyStorage.getNoteNumber(new BankNote(Currency.USD, 10))
+        }
+    }
+
+    void testCurrencyAmountException() {
+        shouldFail(AtmStateException) {
+            moneyStorage.getCurrencyAmount(Currency.JPY)
         }
     }
 }
