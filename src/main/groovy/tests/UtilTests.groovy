@@ -1,9 +1,10 @@
-package com.test.atm
+import com.test.atm.AtmStateException
+import com.test.atm.AtmUtils
 
 /**
  * Created by Test on 12/08/2016.
  */
-class UtilTests extends GroovyTestCase {
+class UtilTests extends GroovyTestCase{
     void utilTestOne() {
         shouldFail(AtmStateException) {
             AtmUtils.parseInt('ABC', 'STRING IS NOT PARSABLE')
