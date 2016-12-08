@@ -10,7 +10,7 @@ class MoneyStorageTest extends GroovyTestCase {
         moneyStorage = new MoneyStorage()
     }
 
-    void moneyStorageTest() throws AtmStateException {
+    void moneyStorageTest() {
         def storageCheck = [:] as TreeMap
         moneyStorage.addNotes(Currency.USD, 100, 1)
         moneyStorage.addNotes(Currency.USD, 100, 2)
