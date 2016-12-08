@@ -1,7 +1,4 @@
-import com.test.atm.Atm
-import com.test.atm.AtmStateException
-import com.test.atm.BankNote
-import com.test.atm.Currency
+package com.test.atm
 
 /**
  * Created by Test on 12/07/2016.
