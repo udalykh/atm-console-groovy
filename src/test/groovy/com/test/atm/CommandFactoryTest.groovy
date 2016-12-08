@@ -11,7 +11,7 @@ class CommandFactoryTest extends GroovyTestCase {
         atmCommandFactory = new AtmCommandFactory(moneyStorage)
     }
 
-    void defaultAtmCommand() {
+    void testDefaultAtmCommand() {
         shouldFail(AtmStateException) {
             atmCommandFactory.create('ABC')
         }
