@@ -10,7 +10,7 @@ class MoneyStorageTest extends GroovyTestCase {
         moneyStorage = new MoneyStorage()
     }
 
-    void moneyStorageTest() {
+    void testMoneyStorage() {
         def storageCheck = [:] as TreeMap
         moneyStorage.addNotes(Currency.USD, 100, 1)
         moneyStorage.addNotes(Currency.USD, 100, 2)
@@ -18,15 +18,14 @@ class MoneyStorageTest extends GroovyTestCase {
         assertEquals(storageCheck, moneyStorage.getNotes())
     }
 
-    void moneyStorageTest2() {
+    void testMoneyStorage2() {
         shouldFail(AtmStateException) {
             moneyStorage.addNotes(Currency.RUR, 120, 1)
         }
     }
 
-    void moneyStorageException() {
+    void testMoneyStorageException() {
         shouldFail(AtmStateException) {
-            moneyStorage.addNotes(Currency.USD, 10, 7)
             moneyStorage.getNoteNumber(new BankNote(Currency.USD, 10))
         }
     }
