@@ -5,7 +5,7 @@ import com.test.atm.CommandType
  */
 class CommandTypeTest extends GroovyTestCase {
 
-    public void testAtmCommand() {
+    void testAtmCommand() {
         CommandType addCheck = CommandType.getCommandType('+')
         assertEquals(addCheck, CommandType.ADD)
 
