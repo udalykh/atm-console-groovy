@@ -6,7 +6,7 @@ package com.test.atm
 class BanknoteTest extends GroovyTestCase {
     void testBanknoteToString() throws AtmStateException {
         BankNote testBanknote = new BankNote(Currency.USD, 100)
-        String expected = "USD 100"
+        String expected = 'USD 100'
         assertEquals(testBanknote.toString(), expected)
     }
 }
