@@ -5,7 +5,7 @@ package com.test.atm
  */
 class CurrencyTest extends GroovyTestCase {
 
-    void currencyTest() {
+    void testCurrencyTest() {
         Currency getUsd = Currency.getCurrency('USD')
         assertEquals(getUsd, Currency.USD)
 
