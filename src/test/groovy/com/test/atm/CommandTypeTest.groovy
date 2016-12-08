@@ -1,4 +1,4 @@
-import com.test.atm.CommandType
+package com.test.atm
 
 /**
  * Created by Test on 12/07/2016.
