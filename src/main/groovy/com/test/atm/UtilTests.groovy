@@ -6,13 +6,13 @@ package com.test.atm
 class UtilTests extends GroovyTestCase {
     void utilTestOne() {
         shouldFail(AtmStateException) {
-            AtmUtils.parseInt("ABC", "STRING IS NOT PARSABLE")
+            AtmUtils.parseInt('ABC', 'STRING IS NOT PARSABLE')
         }
     }
 
     void utilTestTwo() {
         shouldFail(AtmStateException) {
-            String[] stringArray = { "One"; "Two" }
+            String[] stringArray = [ 'One', 'Two' ]
             AtmUtils.assertLengthCheck(3, stringArray)
         }
     }
