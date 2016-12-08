@@ -5,7 +5,7 @@ package com.test.atm
  */
 class AtmTest extends GroovyTestCase {
     private Atm atm
-    private Map<BankNote, Integer> atmTest = new TreeMap<>()
+    def atmTest = [:] as TreeMap
 
     void setUp() {
         atm = new Atm()
