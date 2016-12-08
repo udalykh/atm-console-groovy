@@ -1,6 +1,4 @@
-import com.test.atm.AtmCommandFactory
-import com.test.atm.AtmStateException
-import com.test.atm.MoneyStorage
+package com.test.atm
 
 /**
  * Created by Test on 12/08/2016.
