@@ -1,4 +1,5 @@
-package com.test.atm
+import com.test.atm.AtmStateException
+import com.test.atm.Currency
 
 /**
  * Created by Test on 12/07/2016.
