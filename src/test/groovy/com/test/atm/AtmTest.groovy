@@ -86,5 +86,11 @@ class AtmTest extends GroovyTestCase {
         atmTest.put(new BankNote(Currency.USD, 10), 48)
         atmTest.put(new BankNote(Currency.USD, 100), 29)
         assertEquals(atmTest, result)
+
+        result = atm.runCommand("-", "CHF", "200")
+        atmTest.clear()
+        atmTest.put(new BankNote(Currency.CHF, 100), 1)
+        atmTest.put(new BankNote(Currency.CHF, 10), 10)
+        assertEquals(atmTest, result)
     }
 }
