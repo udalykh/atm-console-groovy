@@ -11,7 +11,7 @@ class AtmTest extends GroovyTestCase {
         atm = new Atm()
     }
 
-    void sampleSession() throws AtmStateException {
+    void sampleSession(){
         Map<BankNote, Integer> result = atm.runCommand("?")
         assertEquals(atmTest, result)
 
