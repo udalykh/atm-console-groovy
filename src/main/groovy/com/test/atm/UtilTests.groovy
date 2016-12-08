@@ -12,7 +12,7 @@ class UtilTests extends GroovyTestCase {
 
     void utilTestTwo() {
         shouldFail(AtmStateException) {
-            String[] stringArray = [ 'One', 'Two' ]
+            String[] stringArray = ['One', 'Two']
             AtmUtils.assertLengthCheck(3, stringArray)
         }
     }
