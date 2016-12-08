@@ -4,8 +4,8 @@ package com.test.atm
  * Created by Test on 12/07/2016.
  */
 class AtmTest extends GroovyTestCase {
-    private Atm atm;
-    private Map<BankNote, Integer> atmTest = new TreeMap<>();
+    private Atm atm
+    private Map<BankNote, Integer> atmTest = new TreeMap<>()
 
     void setUp() {
         atm = new Atm()
