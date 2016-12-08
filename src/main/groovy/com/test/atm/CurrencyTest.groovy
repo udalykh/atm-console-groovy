@@ -6,25 +6,25 @@ package com.test.atm
 class CurrencyTest extends GroovyTestCase {
 
     void currencyTest() throws AtmStateException {
-        Currency getUsd = Currency.getCurrency("USD")
+        Currency getUsd = Currency.getCurrency('USD')
         assertEquals(getUsd, Currency.USD)
 
-        Currency getEur = Currency.getCurrency("EUR")
+        Currency getEur = Currency.getCurrency('EUR')
         assertEquals(getEur, Currency.EUR)
 
-        Currency getJpy = Currency.getCurrency("JPY")
+        Currency getJpy = Currency.getCurrency('JPY')
         assertEquals(getJpy, Currency.JPY)
 
-        Currency getRur = Currency.getCurrency("RUR")
+        Currency getRur = Currency.getCurrency('RUR')
         assertEquals(getRur, Currency.RUR)
 
-        Currency getChf = Currency.getCurrency("CHF")
+        Currency getChf = Currency.getCurrency('CHF')
         assertEquals(getChf, Currency.CHF)
     }
 
     void testCurrencyException() throws AtmStateException {
         shouldFail(AtmStateException) {
-            Currency.getCurrency("Abcde")
+            Currency.getCurrency('Abcde')
         }
     }
 
