@@ -5,7 +5,7 @@ package com.test.atm
  */
 class CurrencyTest extends GroovyTestCase {
 
-    void currencyTest() throws AtmStateException {
+    void currencyTest() {
         Currency getUsd = Currency.getCurrency('USD')
         assertEquals(getUsd, Currency.USD)
 
@@ -22,13 +22,13 @@ class CurrencyTest extends GroovyTestCase {
         assertEquals(getChf, Currency.CHF)
     }
 
-    void testCurrencyException() throws AtmStateException {
+    void testCurrencyException() {
         shouldFail(AtmStateException) {
             Currency.getCurrency('Abcde')
         }
     }
 
-    void testCurrencyNull() throws AtmStateException {
+    void testCurrencyNull() {
         shouldFail(AtmStateException) {
             Currency.getCurrency(null)
         }
