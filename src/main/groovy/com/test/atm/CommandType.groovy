@@ -17,6 +17,6 @@ enum CommandType {
                 return commandTypeCheck
             }
         }
-        throw new AtmStateException('UNIDENTIFIED COMMAND')
+        return null
     }
 }
