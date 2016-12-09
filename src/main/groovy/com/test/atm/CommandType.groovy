@@ -11,7 +11,7 @@ enum CommandType {
         this.command = command
     }
 
-    public static CommandType getCommandType(String command) {
+    static CommandType getCommandType(String command) {
         for (CommandType commandTypeCheck : values()) {
             if (commandTypeCheck.command == command) {
                 return commandTypeCheck
