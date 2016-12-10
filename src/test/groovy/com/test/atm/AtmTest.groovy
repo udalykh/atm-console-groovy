@@ -16,7 +16,7 @@ class AtmTest extends GroovyTestCase {
         assertEquals(atmTest, result)
 
         result = atm.runCommand("+", "USD", "100", "30")
-        atmTest.put(new BankNote(Currency.USD, 100), 30)
+        atmTest = [(new BankNote(Currency.USD, 100)): 30]
         assertEquals(atmTest, result)
 
         try {
@@ -25,26 +25,23 @@ class AtmTest extends GroovyTestCase {
         }
 
         result = atm.runCommand("+", "CHF", "100", "5")
-        atmTest.clear();
-        atmTest.put(new BankNote(Currency.CHF, 100), 5)
+        atmTest = [(new BankNote(Currency.CHF, 100)): 5]
         assertEquals(atmTest, result)
 
         result = atm.runCommand("+", "USD", "10", "50")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.USD, 10), 50)
+        atmTest = [(new BankNote(Currency.USD, 10)): 50]
         assertEquals(atmTest, result)
 
         result = atm.runCommand("?")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.USD, 10), 50)
-        atmTest.put(new BankNote(Currency.CHF, 100), 5)
-        atmTest.put(new BankNote(Currency.USD, 100), 30)
+        atmTest =
+                [(new BankNote(Currency.USD, 10)) : 50,
+                 (new BankNote(Currency.CHF, 100)): 5,
+                 (new BankNote(Currency.USD, 100)): 30]
         assertEquals(atmTest, result)
 
         result = atm.runCommand("-", "USD", "120")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.USD, 100), 1)
-        atmTest.put(new BankNote(Currency.USD, 10), 2)
+        atmTest = [(new BankNote(Currency.USD, 100)): 1,
+                   (new BankNote(Currency.USD, 10)) : 2]
         assertEquals(atmTest, result)
 
         try {
@@ -58,10 +55,9 @@ class AtmTest extends GroovyTestCase {
         }
 
         result = atm.runCommand("?")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.CHF, 100), 5)
-        atmTest.put(new BankNote(Currency.USD, 10), 48)
-        atmTest.put(new BankNote(Currency.USD, 100), 29)
+        atmTest = [(new BankNote(Currency.CHF, 100)): 5,
+                   (new BankNote(Currency.USD, 10)) : 48,
+                   (new BankNote(Currency.USD, 100)): 29]
         assertEquals(atmTest, result)
 
         try {
@@ -70,27 +66,23 @@ class AtmTest extends GroovyTestCase {
         }
 
         result = atm.runCommand("-", "CHF", "400")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.CHF, 100), 4)
+        atmTest = [(new BankNote(Currency.CHF, 100)): 4]
         assertEquals(atmTest, result)
 
         result = atm.runCommand("+", "CHF", "10", "50")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.CHF, 10), 50)
+        atmTest = [(new BankNote(Currency.CHF, 10)): 50]
         assertEquals(atmTest, result)
 
         result = atm.runCommand("?")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.CHF, 10), 50)
-        atmTest.put(new BankNote(Currency.CHF, 100), 1)
-        atmTest.put(new BankNote(Currency.USD, 10), 48)
-        atmTest.put(new BankNote(Currency.USD, 100), 29)
+        atmTest = [(new BankNote(Currency.CHF, 10)) : 50,
+                   (new BankNote(Currency.CHF, 100)): 1,
+                   (new BankNote(Currency.USD, 10)) : 48,
+                   (new BankNote(Currency.USD, 100)): 29]
         assertEquals(atmTest, result)
 
         result = atm.runCommand("-", "CHF", "200")
-        atmTest.clear()
-        atmTest.put(new BankNote(Currency.CHF, 100), 1)
-        atmTest.put(new BankNote(Currency.CHF, 10), 10)
+        atmTest = [(new BankNote(Currency.CHF, 100)): 1,
+                   (new BankNote(Currency.CHF, 10)) : 10]
         assertEquals(atmTest, result)
     }
 }
