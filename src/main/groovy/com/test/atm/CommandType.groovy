@@ -11,16 +11,13 @@ enum CommandType {
         this.command = command
     }
 
-    //TODO: let's throw AtmStateException if the command is incorrect
-    static CommandType getCommandType(String command) {
-        // TODO: refactor to Groovy style:
-        // values().find { it.command == command }
 
-        for (CommandType commandTypeCheck : values()) {
-            if (commandTypeCheck.command == command) {
-                return commandTypeCheck
-            }
+    static CommandType getCommandType(String command) {
+        try {
+            return values().find { it.command == command }
         }
-        return null
+        catch (NullPointerException e) {
+            throw new AtmStateException('UNIDENTIFIED COMMAND')
+        }
     }
 }
