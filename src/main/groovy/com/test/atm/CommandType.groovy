@@ -11,8 +11,12 @@ enum CommandType {
         this.command = command
     }
 
-    //TODO: let's throw AtmStateException if the command is incorrect
     static CommandType getCommandType(String command) {
-        values().find { it.command == command }
+        CommandType commandToGet = values().find { it.command == command }
+        if (commandToGet) {
+            return commandToGet
+        } else {
+            throw new AtmStateException('INVALID COMMAND TYPE')
+        }
     }
 }
