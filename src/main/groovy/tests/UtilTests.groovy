@@ -4,6 +4,7 @@ import com.test.atm.AtmUtils
 /**
  * Created by Test on 12/08/2016.
  */
+//TODO: should be under src/test/groovy folder
 class UtilTests extends GroovyTestCase {
     void utilTestOne() {
         shouldFail(AtmStateException) {
