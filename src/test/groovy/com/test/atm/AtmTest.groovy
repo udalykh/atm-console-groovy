@@ -21,7 +21,7 @@ class AtmTest extends GroovyTestCase {
 
         try {
             atm.runCommand("+", "RUR", "250", "10")
-            //TODO: add fail() here
+            fail()
         } catch (AtmStateException e) {
         }
 
@@ -47,13 +47,13 @@ class AtmTest extends GroovyTestCase {
 
         try {
             atm.runCommand("-", "RUR", "500")
-            //TODO: add fail() here
+            fail()
         } catch (AtmStateException e) {
         }
 
         try {
             atm.runCommand("-", "CHF", "250")
-            //TODO: add fail() here
+            fail()
         } catch (AtmStateException e) {
         }
 
@@ -65,7 +65,7 @@ class AtmTest extends GroovyTestCase {
 
         try {
             atm.runCommand("+", "eur", "100", "5")
-            //TODO: add fail() here
+            fail()
         } catch (AtmStateException e) {
         }
 
